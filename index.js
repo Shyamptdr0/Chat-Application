@@ -33,3 +33,8 @@ server.listen(PORT, ()=>{
     console.log(`Server listen at prot ${PORT}`);
 });
 
+import path from "path";
+app.use(express.static('frontend/build'));
+ app.get('*', (req, res) => {
+    res.sendFile(path.resolve('frontend','build','index.html'));
+});
